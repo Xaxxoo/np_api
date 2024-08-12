@@ -11,14 +11,13 @@ import sendMail from "../utils/sendMail";
 interface IRegistrationBody {
   name: string;
   email: string;
-  password: string;
-  avatar?: string;
+  phoneNumber: string;
 }
 
-export const registrationUser = CatchAsyncError(
+export const join = CatchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { name, email, password } = req.body;
+      const { name, email, phoneNumber } = req.body;
 
       const isEmailExist = await joinModel.findOne({ email });
       if (isEmailExist) {
@@ -27,7 +26,7 @@ export const registrationUser = CatchAsyncError(
         const user = await joinModel.create({
           name,
           email,
-          password,
+          phoneNumber,
         });
 
         const data = { user: { name: user.name } };

@@ -1,12 +1,10 @@
 import express from "express";
 import {
-  
-  registrationUser
-  
+join
 } from "../controllers/join.controllers";
 const joinRouter = express.Router();
 
-joinRouter.post("/registration", registrationUser);
+joinRouter.post("/join", join);
 
 
 
