@@ -4,7 +4,7 @@ join
 } from "../controllers/join.controllers";
 const joinRouter = express.Router();
 
-joinRouter.post("/join", join);
+joinRouter.post("join", join);
 
 
 
